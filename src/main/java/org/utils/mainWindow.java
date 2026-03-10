@@ -16,7 +16,6 @@ public class mainWindow extends JFrame{
 
 
 
-
         // sets title for the window
         this.setTitle("MORSE TRANSLATOR");
         // sets title of this
