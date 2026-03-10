@@ -1,1 +1,1 @@
-rootProject.name = "morse-translator-1"
+rootProject.name = "morse-translator"
