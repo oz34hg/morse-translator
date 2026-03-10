@@ -1,6 +1,8 @@
-package utils;
+package org.utils;
 
 import java.util.*;
+
+import static org.utils.hashmapTools.reverse;
 
 public class utilMorse {
     private static HashMap<String, String> morse = new HashMap<>();
@@ -52,5 +54,23 @@ public class utilMorse {
 
         }
         return String.join(" ", finalMorse);
+    }
+
+
+    public static String decode(String morseText) {
+        ArrayList<String> finalDecoded = new ArrayList<>();
+        HashMap<String, String> reversedMorseDict = reverse(utilMorse.morse);
+
+        String[] splitStringInput = morseText.split("\\s+");
+
+        for (String morseLetter : splitStringInput) {
+
+            if (reversedMorseDict.containsKey(morseLetter)) {
+                finalDecoded.add(reversedMorseDict.get(morseLetter));
+            } else {
+                finalDecoded.add("?");
+            }
+        }
+        return String.join(" ", finalDecoded);
     }
 }
