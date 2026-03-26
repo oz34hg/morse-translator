@@ -1,5 +1,7 @@
 package org.utils;
 
+import com.formdev.flatlaf.ui.MigLayoutVisualPadding;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,19 +22,16 @@ public class mainWindow extends JFrame{
         JButton translateTo = new JButton("Translate");
         JButton translateFrom = new JButton("Translate");
 
-        // set design for buttons
+        JLabel label = new JLabel("TEST");
 
 
         JPanel mainPanel = new JPanel();
         JPanel toMorse = new JPanel();
         JPanel fromMorse = new JPanel();
 
-        toMorse.setLayout(new GridLayout());
-        fromMorse.setLayout(new GridLayout());
-
         // sets size and place for the mainPanel
         mainPanel.setSize(800, 800);
-        mainPanel.setLayout(new GridLayout());
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         // sets size for toMorse panel
         toMorse.setSize(800, 800);
@@ -56,7 +55,6 @@ public class mainWindow extends JFrame{
         toMorse.add(b3);
         fromMorse.add(b4);
 
-
         // handle the clicks on the buttons
         b1.addActionListener(e -> layoutCards.show(deck, "TranslateToMorse"));
         b2.addActionListener(e -> layoutCards.show(deck, "TranslateFromMorse"));
@@ -71,8 +69,6 @@ public class mainWindow extends JFrame{
         this.setResizable(false);
         // sets the window to be visible
         this.setVisible(true);
-        // sets no layout manager
-        this.setLayout(null);
         // kills the program if closed
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 
