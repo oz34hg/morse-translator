@@ -1,6 +1,5 @@
 package org.utils;
 
-import com.formdev.flatlaf.ui.MigLayoutVisualPadding;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +20,6 @@ public class mainWindow extends JFrame{
 
         JButton translateTo = new JButton("Translate");
         JButton translateFrom = new JButton("Translate");
-
-        JLabel label = new JLabel("TEST");
 
 
         JPanel mainPanel = new JPanel();
