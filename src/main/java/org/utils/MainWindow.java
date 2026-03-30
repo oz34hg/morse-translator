@@ -60,13 +60,13 @@ public class MainWindow extends JFrame {
         mainPanel.add(b2);
         mainPanel.add(Box.createVerticalGlue());
 
-        // --- To Morse Panel Setup ---
+        // To Morse Panel Setup
         JPanel toMorse = new JPanel();
         toMorse.setLayout(new BoxLayout(toMorse, BoxLayout.Y_AXIS));
         toMorse.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JLabel lblNormal1 = new JLabel("Normal Text");
-        JLabel lblMorse1 = new JLabel("Morse Text");
+        JLabel lblMorse1 = new JLabel("Morse Code");
 
         lblNormal1.setAlignmentX(Component.CENTER_ALIGNMENT);
         scrollPane1.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -98,12 +98,12 @@ public class MainWindow extends JFrame {
         toMorse.add(bottomPanelTo);
         toMorse.add(Box.createVerticalGlue());
 
-        // --- From Morse Panel Setup ---
+        // From Morse Panel Setup
         JPanel fromMorse = new JPanel();
         fromMorse.setLayout(new BoxLayout(fromMorse, BoxLayout.Y_AXIS));
         fromMorse.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        JLabel lblMorse2 = new JLabel("Morse Text");
+        JLabel lblMorse2 = new JLabel("Morse Code");
         JLabel lblNormal2 = new JLabel("Normal Text");
 
         lblMorse2.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -151,6 +151,19 @@ public class MainWindow extends JFrame {
         // Logic for Clear buttons
         clearTo.addActionListener(e -> { field1.setText(""); outputField1.setText(""); });
         clearFrom.addActionListener(e -> { field2.setText(""); outputField2.setText(""); });
+
+        // logic for translate buttons
+        translateTo.addActionListener(e ->{
+            String input = field1.getText();
+            String output = UtilMorse.encode(input);
+            outputField1.setText(output);
+        });
+        translateFrom.addActionListener(e ->{
+            String input = field2.getText();
+            String output = UtilMorse.decode(input);
+            outputField2.setText(output);
+        });
+
 
         try {
             ImageIcon image = new ImageIcon(getClass().getResource("/assets/images/appIcon.png"));
