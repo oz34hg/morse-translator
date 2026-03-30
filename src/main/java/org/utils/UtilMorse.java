@@ -2,9 +2,9 @@ package org.utils;
 
 import java.util.*;
 
-import static org.utils.hashmapTools.reverse;
+import static org.utils.HashmapTools.reverse;
 
-public class utilMorse {
+public class UtilMorse {
     private static HashMap<String, String> morse = new HashMap<>();
 
     static {
@@ -59,7 +59,7 @@ public class utilMorse {
 
     public static String decode(String morseText) {
         ArrayList<String> finalDecoded = new ArrayList<>();
-        HashMap<String, String> reversedMorseDict = reverse(utilMorse.morse);
+        HashMap<String, String> reversedMorseDict = reverse(UtilMorse.morse);
 
         String[] splitStringInput = morseText.split("\\s+");
 

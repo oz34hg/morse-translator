@@ -1,7 +1,7 @@
 package org;
 
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import org.utils.mainWindow;
+import org.utils.MainWindow;
 import javax.swing.*;
 
 public class Main {
@@ -13,7 +13,7 @@ public class Main {
         }
 
         SwingUtilities.invokeLater(() -> {
-            new mainWindow();
+            new MainWindow();
         });
     }
 }
