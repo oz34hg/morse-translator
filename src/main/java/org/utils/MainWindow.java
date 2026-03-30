@@ -97,7 +97,6 @@ public class MainWindow extends JFrame {
         toMorse.add(Box.createRigidArea(new Dimension(0, 40)));
         toMorse.add(bottomPanelTo);
         toMorse.add(Box.createVerticalGlue());
-
         // From Morse Panel Setup
         JPanel fromMorse = new JPanel();
         fromMorse.setLayout(new BoxLayout(fromMorse, BoxLayout.Y_AXIS));
