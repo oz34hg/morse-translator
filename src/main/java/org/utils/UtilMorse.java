@@ -34,6 +34,16 @@ public class UtilMorse {
         morse.put("X", "-..-");
         morse.put("Y", "-.--");
         morse.put("Z", "--..");
+        morse.put("1", ".----");
+        morse.put("2", "..---");
+        morse.put("3", "...--");
+        morse.put("4", "....-");
+        morse.put("5", ".....");
+        morse.put("6", "-....");
+        morse.put("7", "--...");
+        morse.put("8", "---..");
+        morse.put("9", "----.");
+        morse.put("0", "-----");
     }
 
     public static String encode(String normalText) {
@@ -48,7 +58,9 @@ public class UtilMorse {
 
             } else if (s.equals(" ")) {
                 continue;
-            } else {
+            }else if (s.equals("\n")){
+                continue;
+            }else {
                 finalMorse.add("?");
             }
 
@@ -65,9 +77,12 @@ public class UtilMorse {
 
         for (String morseLetter : splitStringInput) {
 
-            if (reversedMorseDict.containsKey(morseLetter)) {
+
+            if (morseLetter.equals("\n")){
+
+            }else if (reversedMorseDict.containsKey(morseLetter)) {
                 finalDecoded.add(reversedMorseDict.get(morseLetter));
-            } else {
+            }else {
                 finalDecoded.add("?");
             }
         }

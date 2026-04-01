@@ -1,5 +1,6 @@
 package org.utils;
 
+import org.utils.CheatSheetPanel;
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,6 +14,7 @@ public class MainWindow extends JFrame {
         // Create Buttons and Input Fields
         ModernButton b1 = new ModernButton("Translate to Morse");
         ModernButton b2 = new ModernButton("Translate from Morse");
+        ModernButton cheatSheetbtn = new ModernButton("Cheat Sheet");
 
         // Buttons for To Morse Panel
         ModernButton b3 = new ModernButton("MENU");
@@ -40,7 +42,7 @@ public class MainWindow extends JFrame {
         JScrollPane scrollOutput1 = new JScrollPane(outputField1);
         JScrollPane scrollOutput2 = new JScrollPane(outputField2);
 
-        // --- Main Menu Panel Setup ---
+        // Main Menu Panel Setup
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
@@ -49,8 +51,10 @@ public class MainWindow extends JFrame {
 
         b1.setAlignmentX(Component.CENTER_ALIGNMENT);
         b2.setAlignmentX(Component.CENTER_ALIGNMENT);
+        cheatSheetbtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         b1.setMaximumSize(new Dimension(250, 100));
         b2.setMaximumSize(new Dimension(250, 100));
+        cheatSheetbtn.setMaximumSize(new Dimension(250, 100));
 
         mainPanel.add(Box.createVerticalGlue());
         mainPanel.add(logo);
@@ -58,6 +62,8 @@ public class MainWindow extends JFrame {
         mainPanel.add(b1);
         mainPanel.add(Box.createRigidArea(new Dimension(0, 15)));
         mainPanel.add(b2);
+        mainPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+        mainPanel.add(cheatSheetbtn);
         mainPanel.add(Box.createVerticalGlue());
 
         // To Morse Panel Setup
@@ -72,6 +78,9 @@ public class MainWindow extends JFrame {
         scrollPane1.setAlignmentX(Component.CENTER_ALIGNMENT);
         lblMorse1.setAlignmentX(Component.CENTER_ALIGNMENT);
         scrollOutput1.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // cheat sheet panel setup
+        CheatSheetPanel cheatSheet = new CheatSheetPanel(e -> layoutCards.show(deck, "mainPage"));
 
         // Create bottom button panel for To Morse
         JPanel bottomPanelTo = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 0));
@@ -139,6 +148,7 @@ public class MainWindow extends JFrame {
         deck.add(mainPanel, "mainPage");
         deck.add(toMorse, "TranslateToMorse");
         deck.add(fromMorse, "TranslateFromMorse");
+        deck.add(cheatSheet, "CheatSheet");
         this.add(deck);
 
         // Navigation
@@ -146,6 +156,7 @@ public class MainWindow extends JFrame {
         b2.addActionListener(e -> layoutCards.show(deck, "TranslateFromMorse"));
         b3.addActionListener(e -> layoutCards.show(deck, "mainPage"));
         b4.addActionListener(e -> layoutCards.show(deck, "mainPage"));
+        cheatSheetbtn.addActionListener(e -> layoutCards.show(deck, "CheatSheet"));
 
         // Logic for Clear buttons
         clearTo.addActionListener(e -> { field1.setText(""); outputField1.setText(""); });
