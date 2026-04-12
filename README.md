@@ -1,6 +1,6 @@
 # Morse Translator
 
- **Video Demo:** <INSERT_YOUTUBE_VIDEO_URL_HERE>
+ **Video Demo:** https://youtu.be/56upinv_zGo
 
 ---
 
